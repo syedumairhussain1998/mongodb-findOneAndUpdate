@@ -1,0 +1,23 @@
+const User = require("../models/User");
+const list = async (request, response) => {
+  const data = await User.findOneAndUpdate(
+    { email: "umair2" },
+    { $set: { email: "umair1" } },
+    { new: true }
+  );
+  console.log(data);
+  response.json({ data });
+};
+module.exports = { list };
+
+
+
+// Response
+
+{
+    "data": {
+        "_id": "63335db1da9379c51a95d81c",
+        "email": "umair1",
+        "__v": 0
+    }
+}
